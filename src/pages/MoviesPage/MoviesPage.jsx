@@ -1,3 +1,4 @@
+// import MovieList from "../../components/MovieList/MovieList";
 
 const MoviesPage = () => {
   return (
@@ -5,7 +6,7 @@ const MoviesPage = () => {
 
       <h2>MoviesPage Search</h2>
 
-
+      {/* <MovieList movies={movies}/> */}
       {/* <p>Information </p> */}
   
      
