@@ -55,6 +55,20 @@ export const fetchActorsUserById = async (movieId) => {
 };
 
 
+export const fetchSearchUser = async (query) => {
+  const {data} = await axios
+    .get(`/search/movie?query=${query}`, options)
+    // .then(response => console.log(response))
+    // .catch(err => console.error(err));
+  // console.log(data.cast);
+  return data.results;
+};
+
+
+
+// '/search/movie?include_adult=false&language=en-US&page=1'
+// 'https://api.themoviedb.org/3/search/movie'
+
 // "/movie/${movieId}/credits?language=en-US"
 
 // `/movie/${movieId}/reviews?language=en-US&page=1`
