@@ -1,0 +1,13 @@
+.imge {
+  border-radius: 20px;
+  margin: 10px auto;
+}
+.item {
+  flex-direction: column;
+}
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}

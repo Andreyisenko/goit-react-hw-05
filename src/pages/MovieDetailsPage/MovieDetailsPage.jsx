@@ -1,9 +1,11 @@
-// import { NavLink, Outlet } from 'react-router-dom';
-// import MovieCast from '../../components/MovieCast/MovieCast';
-// import MovieReviews from '../../components/MovieReviews/MovieReviews';
-
 import { useEffect, useRef, useState } from 'react';
-import { Link, NavLink, Outlet, useLocation, useNavigate, useParams } from 'react-router-dom';
+import {
+  NavLink,
+  Outlet,
+  useLocation,
+  useNavigate,
+  useParams,
+} from 'react-router-dom';
 import { fetchUserById } from '../../services/api';
 import css from './MovieDetailsPage.module.css';
 import clsx from 'clsx';
@@ -14,13 +16,12 @@ const buildLinkClass = ({ isActive }) => {
 
 const MovieDetailsPage = () => {
   const { movieId } = useParams();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const [movies, setMovies] = useState(null);
-  // console.log(movieId);
-  const location =useLocation()
-  const goBackUrl = useRef(location?.state ?? '/movies')
-  
+  const location = useLocation();
+  const goBackUrl = useRef(location?.state ?? '/movies');
+
   useEffect(() => {
     const getData = async () => {
       try {
@@ -39,16 +40,17 @@ const MovieDetailsPage = () => {
 
   return (
     <div>
-      {/* <button onClick={()=> navigate(-1)}> {`<  GO BACK`} </button> */}
-      <Link to={goBackUrl.current}> {`<<  GO BACK`}</Link>
-      {/* <Link to={location.state}>GO BACK 2</Link> */}
-      <h2>{movies.title}</h2>
-      <p>Vote average:{movies.vote_average}</p>
+      <NavLink className={css.navlinK} to={goBackUrl.current}>
+        {`<<  GO BACK`}
+      </NavLink>
+      <h2 className={css.title}>{movies.title}</h2>
+      <p className={css.text}>Vote average:{movies.vote_average}</p>
       <img
+        className={css.imge}
         src={`https://image.tmdb.org/t/p/w500/${movies.backdrop_path}`}
         alt={movies.title}
       />
-      <p>Overview: {movies.overview}</p>
+      <p className={css.text}>Overview: {movies.overview}</p>
       <nav className={css.linkNav}>
         <NavLink className={buildLinkClass} to="cast">
           Cast
@@ -58,15 +60,6 @@ const MovieDetailsPage = () => {
         </NavLink>
       </nav>
       <Outlet />
-
-      {/* <MovieCast />
-      <MovieReviews /> */}
-
-      {/* <nav>
-        <NavLink to="cast">Cast</NavLink>
-        <NavLink to="reviews"> Reviews</NavLink>
-      </nav>
-      <Outlet /> */}
     </div>
   );
 };

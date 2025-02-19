@@ -2,3 +2,18 @@
   color: brown;
   font-size: 28px;
 }
+
+.back {
+  color: rgb(86, 84, 81);
+  font-size: 26px;
+  background-color: rgb(188, 192, 161);
+  border-radius: 10px;
+}
+.back:hover,
+.back:focus {
+  color: rgb(81, 79, 76);
+  text-decoration: underline;
+  background-color: rgb(243, 94, 30);
+  border-radius: 10px;
+  text-decoration: none;
+}

@@ -12,8 +12,9 @@ const MovieList = ({ movies }) => {
         {movies.map(item => (
           <li className={css.item} key={item.id}>
             <Link to={`/movies/${item.id}`} state={location}>
-              {item.original_title}
+              <p className={css.text}>{item.original_title}</p>
               <img
+                className={css.imge}
                 src={
                   item.backdrop_path
                     ? `https://image.tmdb.org/t/p/w500/${item.backdrop_path}`
@@ -30,15 +31,3 @@ const MovieList = ({ movies }) => {
 };
 
 export default MovieList;
-
-{
-  /* <img
-  src={
-    movieData.poster_path
-      ? `https://image.tmdb.org/t/p/w500/${movieData.poster_path}`
-      : defaultImg
-  }
-  width={250}
-  alt="poster"
-/>; */
-}

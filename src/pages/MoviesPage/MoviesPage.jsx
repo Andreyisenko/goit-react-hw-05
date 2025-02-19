@@ -1,25 +1,18 @@
-// import MovieList from "../../components/MovieList/MovieList";
-
 import { useEffect, useState } from 'react';
 import SearchBar from '../../components/SearchBar/SearchBar';
 import { fetchSearchUser } from '../../services/api';
 import MovieList from '../../components/MovieList/MovieList';
 import { useSearchParams } from 'react-router-dom';
-
+import css from './MoviesPage.module.css';
 const MoviesPage = () => {
-  // const [query, setQuery] = useState('');
   const [datA, setDatA] = useState([]);
-  const [searchParams, setSearchParams] = useSearchParams()
-const movi = searchParams.get("query") ?? ''
-// console.log(movi);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const movi = searchParams.get('query') ?? '';
 
   useEffect(() => {
-    // if (!movi) return;
     const getData = async () => {
       try {
         const data = await fetchSearchUser(movi);
-        // setQuery(query);
-        // console.log(data);
         setDatA(data);
       } catch (error) {
         console.log(error);
@@ -31,12 +24,11 @@ const movi = searchParams.get("query") ?? ''
     item.title.toLowerCase().includes(movi.toLowerCase())
   );
   const handleChangeQuery = value => {
-    // setQuery(value);
-    setSearchParams({query: value})
+    setSearchParams({ query: value });
   };
   return (
     <div>
-      <h2>MoviesPage Search</h2>
+      <h2 className={css.title}>Movies Page Search</h2>
 
       <SearchBar handleChangeQuery={handleChangeQuery} />
       {<MovieList movies={filterData} />}

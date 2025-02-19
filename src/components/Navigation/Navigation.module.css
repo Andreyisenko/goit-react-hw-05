@@ -11,15 +11,14 @@
 }
 
 .link {
-    color: rgb(201, 143, 8);
-    font-size: 26px;
-    text-decoration: none;
-
+  color: rgb(201, 143, 8);
+  font-size: 26px;
+  text-decoration: none;
 }
 
 .active {
-    color: rgb(81, 79, 76);
-    text-decoration: underline;
-    background-color: rgb(231, 189, 6);
-    border-radius: 10px;
+  color: rgb(81, 79, 76);
+  text-decoration: underline;
+  background-color: rgb(231, 189, 6);
+  border-radius: 10px;
 }

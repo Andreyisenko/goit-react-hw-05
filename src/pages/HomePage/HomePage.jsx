@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import MovieList from '../../components/MovieList/MovieList';
 import { fetchUsers } from '../../services/api';
-
+import css from './HomePage.module.css';
 const HomePage = () => {
   const [movies, setmovies] = useState([]);
   useEffect(() => {
@@ -15,11 +15,10 @@ const HomePage = () => {
     };
     getData();
   }, []);
-  // console.log(movies);
-  
+
   return (
     <div>
-      <h2>Movies</h2>
+      <h2 className={css.titleMuv}>Movies</h2>
       <MovieList movies={movies} />
     </div>
   );

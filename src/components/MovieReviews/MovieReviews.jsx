@@ -15,15 +15,13 @@ const MovieReviews = () => {
       } catch (error) {
         console.log(error);
       }
-      // console.log(data);
-      // console.log(reviews);
     };
     getData();
   }, [movieId]);
 
   return (
     <div>
-      MovieReviews:
+      <h2>MovieReviews</h2>
       <ul>
         {reviews.map(item => (
           <li key={item.id}>{item.content}</li>

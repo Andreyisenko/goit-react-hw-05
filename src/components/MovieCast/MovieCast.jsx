@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchActorsUserById } from '../../services/api';
-
+import css from './MovieCast.module.css';
 const MovieCast = () => {
   const defaultImg =
     'https://dummyimage.com/400x600/cdcdcd/000.jpg&text=No+poster';
@@ -15,21 +15,19 @@ const MovieCast = () => {
         setActors(data);
       } catch (error) {
         console.log(error);
-        
       }
-      // console.log(data);
     };
     getData();
   }, [movieId]);
-  // console.log(actors);
 
   return (
     <div>
-      MovieCast:
-      <ul>
+      <h2>MovieCast</h2>
+      <ul className={css.list}>
         {actors.map(actor => (
-          <li key={actor.id}>
+          <li className={css.item} key={actor.id}>
             <img
+              className={css.imge}
               src={
                 actor.profile_path
                   ? `https://image.tmdb.org/t/p/w500/${actor.profile_path}`
@@ -38,16 +36,6 @@ const MovieCast = () => {
               width={250}
               alt="poster"
             />
-
-            {/* <img
-              src={
-                movieData.poster_path
-                  ? `https://image.tmdb.org/t/p/w500/${movieData.poster_path}`
-                  : defaultImg
-              }
-              width={250}
-              alt="poster"
-            /> */}
 
             <p>Character: {actor.character}</p>
             <p>Name: {actor.original_name}</p>
