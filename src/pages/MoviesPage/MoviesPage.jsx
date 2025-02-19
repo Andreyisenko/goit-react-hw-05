@@ -10,16 +10,16 @@ const MoviesPage = () => {
   // const [query, setQuery] = useState('');
   const [datA, setDatA] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams()
-const movi = searchParams.get("query")
-console.log(movi);
+const movi = searchParams.get("query") ?? ''
+// console.log(movi);
 
   useEffect(() => {
-    if (!movi) return;
+    // if (!movi) return;
     const getData = async () => {
       try {
         const data = await fetchSearchUser(movi);
         // setQuery(query);
-        console.log(data);
+        // console.log(data);
         setDatA(data);
       } catch (error) {
         console.log(error);

@@ -15,7 +15,7 @@ const HomePage = () => {
     };
     getData();
   }, []);
-  console.log(movies);
+  // console.log(movies);
   
   return (
     <div>

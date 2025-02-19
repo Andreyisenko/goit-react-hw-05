@@ -2,8 +2,8 @@
 // import MovieCast from '../../components/MovieCast/MovieCast';
 // import MovieReviews from '../../components/MovieReviews/MovieReviews';
 
-import { useEffect, useState } from 'react';
-import { NavLink, Outlet, useParams } from 'react-router-dom';
+import { useEffect, useRef, useState } from 'react';
+import { Link, NavLink, Outlet, useLocation, useNavigate, useParams } from 'react-router-dom';
 import { fetchUserById } from '../../services/api';
 import css from './MovieDetailsPage.module.css';
 import clsx from 'clsx';
@@ -14,9 +14,14 @@ const buildLinkClass = ({ isActive }) => {
 
 const MovieDetailsPage = () => {
   const { movieId } = useParams();
+  const navigate = useNavigate()
 
   const [movies, setMovies] = useState(null);
   // console.log(movieId);
+  const location =useLocation()
+  console.log(location);
+  const goBackUrl = useRef(location.state)
+  
   useEffect(() => {
     const getData = async () => {
       try {
@@ -35,6 +40,8 @@ const MovieDetailsPage = () => {
 
   return (
     <div>
+      <button onClick={()=> navigate(-1)}> {`<  GO BACK`} </button>
+      <Link to={goBackUrl.current}>GO BACK</Link>
       <h2>{movies.title}</h2>
       <p>Vote average:{movies.vote_average}</p>
       <img
@@ -44,11 +51,9 @@ const MovieDetailsPage = () => {
       <p>Overview: {movies.overview}</p>
       <nav className={css.linkNav}>
         <NavLink className={buildLinkClass} to="cast">
-          {' '}
           Cast
         </NavLink>
         <NavLink className={buildLinkClass} to="reviews">
-          {' '}
           Reviews
         </NavLink>
       </nav>

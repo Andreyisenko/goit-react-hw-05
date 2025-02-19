@@ -2,7 +2,7 @@ import { Field, Formik, Form } from 'formik';
 
 const SearchBar = ({handleChangeQuery}) => {
   const onSubmit = values => {
-    console.log(values);
+    // console.log(values);
     handleChangeQuery(values.query)
   };
   const initialValues = {
