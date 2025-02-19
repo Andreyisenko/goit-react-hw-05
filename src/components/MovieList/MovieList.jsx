@@ -5,7 +5,6 @@ const defaultImg =
   'https://dummyimage.com/400x600/cdcdcd/000.jpg&text=No+poster';
 const MovieList = ({ movies }) => {
   const location = useLocation();
-  // console.log(location);
 
   return (
     <div>

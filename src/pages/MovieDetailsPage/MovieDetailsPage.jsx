@@ -19,8 +19,7 @@ const MovieDetailsPage = () => {
   const [movies, setMovies] = useState(null);
   // console.log(movieId);
   const location =useLocation()
-  console.log(location);
-  const goBackUrl = useRef(location.state)
+  const goBackUrl = useRef(location?.state ?? '/movies')
   
   useEffect(() => {
     const getData = async () => {
@@ -40,8 +39,9 @@ const MovieDetailsPage = () => {
 
   return (
     <div>
-      <button onClick={()=> navigate(-1)}> {`<  GO BACK`} </button>
-      <Link to={goBackUrl.current}>GO BACK</Link>
+      {/* <button onClick={()=> navigate(-1)}> {`<  GO BACK`} </button> */}
+      <Link to={goBackUrl.current}> {`<<  GO BACK`}</Link>
+      {/* <Link to={location.state}>GO BACK 2</Link> */}
       <h2>{movies.title}</h2>
       <p>Vote average:{movies.vote_average}</p>
       <img
